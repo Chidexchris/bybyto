@@ -43,7 +43,6 @@ def create_app():
 
 # Create the app instance for gunicorn
 app = create_app()
-application = app
 
 # Only create tables in development, not in production
 if __name__ == '__main__':
