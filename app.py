@@ -30,6 +30,45 @@ def create_app():
     app.register_blueprint(provider_bp, url_prefix='/provider')
     app.register_blueprint(servicemen_bp, url_prefix='/servicemen')
     app.register_blueprint(api_bp, url_prefix='/api')
+    
+    from routes.matching import matching_bp
+    app.register_blueprint(matching_bp, url_prefix='/matching')
+
+    from routes.tracking import tracking_bp
+    app.register_blueprint(tracking_bp, url_prefix='/tracking')
+
+    from routes.portfolio import portfolio_bp
+    app.register_blueprint(portfolio_bp, url_prefix='/portfolio')
+
+    from routes.chat import chat_bp
+    app.register_blueprint(chat_bp, url_prefix='/chat')
+
+    from routes.emergency import emergency_bp
+    app.register_blueprint(emergency_bp, url_prefix='/emergency')
+
+    from routes.verification import verification_bp
+    app.register_blueprint(verification_bp, url_prefix='/verification')
+
+    from routes.loyalty import loyalty_bp
+    app.register_blueprint(loyalty_bp, url_prefix='/loyalty')
+
+    from routes.payments import payments_bp
+    app.register_blueprint(payments_bp, url_prefix='/payments')
+
+    from routes.business import business_bp
+    app.register_blueprint(business_bp, url_prefix='/business')
+
+    from routes.training import training_bp
+    app.register_blueprint(training_bp, url_prefix='/training')
+
+
+
+
+
+
+
+
+
 
     @app.route('/')
     def index():
@@ -37,7 +76,7 @@ def create_app():
 
     @app.route('/assets/<path:filename>')
     def serve_assets(filename):
-        return send_from_directory('static/fixit', filename)
+        return send_from_directory('static/bybytoo', filename)
 
     return app
 

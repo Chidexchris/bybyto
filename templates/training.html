@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Provider Training - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>Training Center</h2>
+            <p>Upskill yourself to earn more!</p>
+        </div>
+
+        <div class="row g-3">
+            {% for module in modules %}
+            <div class="col-12 col-md-6">
+                <div class="card h-100">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="{{ module.video_url }}" title="{{ module.title }}" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ module.title }}</h5>
+                        <span class="badge bg-info mb-2">{{ module.category }}</span>
+                        <p class="card-text">{{ module.description }}</p>
+                        <button class="btn btn-sm btn-outline-primary w-100">Mark as Completed</button>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center">
+                <p>No training modules available at the moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

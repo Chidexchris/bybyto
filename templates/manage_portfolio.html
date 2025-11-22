@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Portfolio - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>Manage Your Portfolio</h2>
+        </div>
+
+        <form method="POST" class="mb-4">
+            <div class="mb-3">
+                <label for="image_url" class="form-label">Image URL</label>
+                <input type="url" class="form-control" id="image_url" name="image_url" required
+                    placeholder="https://example.com/image.jpg">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="is_before_after" name="is_before_after">
+                <label class="form-check-label" for="is_before_after">Is this a Before/After comparison?</label>
+            </div>
+            <button type="submit" class="btn theme-btn w-100">Add to Portfolio</button>
+        </form>
+
+        <hr>
+
+        <h3>Current Items</h3>
+        <div class="row g-3">
+            {% for item in provider.portfolio_items %}
+            <div class="col-6 col-md-4">
+                <div class="card h-100">
+                    <img src="{{ item.image_url }}" class="card-img-top" alt="Portfolio Item">
+                    <div class="card-body">
+                        <p class="card-text">{{ item.description }}</p>
+                        {% if item.is_before_after %}
+                        <span class="badge bg-info">Before & After</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Get Verified - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>Get Verified</h2>
+            <p>Build trust with your customers by verifying your identity.</p>
+        </div>
+
+        {% if provider.is_verified %}
+        <div class="alert alert-success text-center">
+            <i class="iconsax" data-icon="verify" style="font-size: 48px;"></i>
+            <h4>You are a Verified Provider!</h4>
+            <p>Your profile now displays the "Trusted Worker" badge.</p>
+        </div>
+        {% else %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5>Why Verify?</h5>
+                <ul>
+                    <li>Get the "Trusted Worker" badge</li>
+                    <li>Appear higher in search results</li>
+                    <li>Increase customer confidence</li>
+                </ul>
+            </div>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="id_document" class="form-label">Upload National ID / Passport</label>
+                <input class="form-control" type="file" id="id_document" name="id_document" accept="image/*,.pdf"
+                    required>
+                <div class="form-text">We accept JPG, PNG, or PDF files. Your data is secure.</div>
+            </div>
+            <button type="submit" class="btn theme-btn w-100">Submit for Verification</button>
+        </form>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ provider.name }}'s Portfolio - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>{{ provider.name }}'s Portfolio</h2>
+        </div>
+
+        <div class="row g-3">
+            {% for item in provider.portfolio_items %}
+            <div class="col-6 col-md-4">
+                <div class="card h-100">
+                    <img src="{{ item.image_url }}" class="card-img-top" alt="Portfolio Item">
+                    <div class="card-body">
+                        <p class="card-text">{{ item.description }}</p>
+                        {% if item.is_before_after %}
+                        <span class="badge bg-info">Before & After</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center">
+                <p>No portfolio items yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

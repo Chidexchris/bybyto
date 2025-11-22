@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Smart Matching - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>Find the Best Pro</h2>
+        </div>
+        <form action="/matching/match" method="POST">
+            <div class="mb-3">
+                <label for="category" class="form-label">Service Category</label>
+                <select class="form-select" id="category" name="category" required>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Electrician">Electrician</option>
+                    <option value="Carpenter">Carpenter</option>
+                    <option value="Painter">Painter</option>
+                    <option value="Salon">Salon</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Your Location</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="location-display" placeholder="Detecting location..."
+                        readonly>
+                    <button class="btn btn-outline-secondary" type="button" id="detect-location">
+                        <i class="iconsax" data-icon="location"></i>
+                    </button>
+                </div>
+                <input type="hidden" id="lat" name="lat">
+                <input type="hidden" id="lng" name="lng">
+            </div>
+            <button type="submit" class="btn theme-btn w-100">Find Matches</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('detect-location').addEventListener('click', function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                document.getElementById('lat').value = position.coords.latitude;
+                document.getElementById('lng').value = position.coords.longitude;
+                document.getElementById('location-display').value = position.coords.latitude + ', ' + position.coords.longitude;
+            }, function (error) {
+                alert("Error detecting location: " + error.message);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+{% endblock %}

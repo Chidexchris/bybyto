@@ -7,7 +7,7 @@ provider_bp = Blueprint('provider', __name__)
 
 @provider_bp.route('/')
 def index():
-    return render_template('fixit/provider-app/index.html')
+    return render_template('bybytoo/provider-app/index.html')
 
 @provider_bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -19,7 +19,7 @@ def login():
             login_user(provider)
             return redirect(url_for('provider.home'))
         flash('Invalid credentials')
-    return render_template('fixit/provider-app/login.html')
+    return render_template('bybytoo/provider-app/login.html')
 
 @provider_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -32,7 +32,7 @@ def signup():
         db.session.add(new_provider)
         db.session.commit()
         return redirect(url_for('provider.login'))
-    return render_template('fixit/provider-app/signup.html')
+    return render_template('bybytoo/provider-app/signup.html')
 
 @provider_bp.route('/logout')
 @login_required
@@ -45,7 +45,7 @@ def logout():
 def home():
     services = Service.query.filter_by(provider_id=current_user.id).all()
     bookings = Booking.query.join(Service).filter(Service.provider_id == current_user.id).all()
-    return render_template('fixit/provider-app/home.html', services=services, bookings=bookings)
+    return render_template('bybytoo/provider-app/home.html', services=services, bookings=bookings)
 
 @provider_bp.route('/api/login', methods=['POST'])
 def api_login():
@@ -148,15 +148,15 @@ def api_update_booking_status(booking_id):
 # Serve manifest.json and other static files for PWA
 @provider_bp.route('/manifest.json')
 def manifest():
-    return send_from_directory('templates/fixit/provider-app', 'manifest.json')
+    return send_from_directory('templates/bybytoo/provider-app', 'manifest.json')
 
 @provider_bp.route('/sw.js')
 def service_worker():
-    return send_from_directory('templates/fixit/provider-app', 'sw.js')
+    return send_from_directory('templates/bybytoo/provider-app', 'sw.js')
 
 # Add routes for other HTML pages
 @provider_bp.route('/<path:page>')
 def serve_page(page):
     if page.endswith('.html'):
-        return render_template(f'fixit/provider-app/{page}')
-    return render_template('fixit/provider-app/index.html')
+        return render_template(f'bybytoo/provider-app/{page}')
+    return render_template('bybytoo/provider-app/index.html')

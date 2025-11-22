@@ -7,7 +7,7 @@ user_bp = Blueprint('user', __name__)
 
 @user_bp.route('/')
 def index():
-    return render_template('fixit/user-app/index.html')
+    return render_template('bybytoo/user-app/index.html')
 
 @user_bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -19,7 +19,7 @@ def login():
             login_user(user)
             return redirect(url_for('user.home'))
         flash('Invalid credentials')
-    return render_template('fixit/user-app/login.html')
+    return render_template('bybytoo/user-app/login.html')
 
 @user_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -32,7 +32,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('user.login'))
-    return render_template('fixit/user-app/signup.html')
+    return render_template('bybytoo/user-app/signup.html')
 
 @user_bp.route('/logout')
 @login_required
@@ -43,31 +43,31 @@ def logout():
 @user_bp.route('/home')
 @login_required
 def home():
-    return render_template('fixit/user-app/home.html')
+    return render_template('bybytoo/user-app/home.html')
 
 # Add more routes for other pages like booking, profile, etc.
 @user_bp.route('/booking')
 @login_required
 def booking():
-    return render_template('fixit/user-app/booking.html')
+    return render_template('bybytoo/user-app/booking.html')
 
 @user_bp.route('/profile')
 @login_required
 def profile():
-    return render_template('fixit/user-app/profile.html')
+    return render_template('bybytoo/user-app/profile.html')
 
 # Serve manifest.json and other static files for PWA
 @user_bp.route('/manifest.json')
 def manifest():
-    return send_from_directory('templates/fixit/user-app', 'manifest.json')
+    return send_from_directory('templates/bybytoo/user-app', 'manifest.json')
 
 @user_bp.route('/sw.js')
 def service_worker():
-    return send_from_directory('templates/fixit/user-app', 'sw.js')
+    return send_from_directory('templates/bybytoo/user-app', 'sw.js')
 
 # Add routes for other HTML pages
 @user_bp.route('/<path:page>')
 def serve_page(page):
     if page.endswith('.html'):
-        return render_template(f'fixit/user-app/{page}')
-    return render_template('fixit/user-app/index.html')
+        return render_template(f'bybytoo/user-app/{page}')
+    return render_template('bybytoo/user-app/index.html')

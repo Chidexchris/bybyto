@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Business Dashboard - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>Business Dashboard</h2>
+            <p>Manage your corporate account.</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-6">
+                <div class="card bg-primary text-white h-100">
+                    <div class="card-body text-center">
+                        <h3>${{ total_spent }}</h3>
+                        <p>Total Spent</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-body text-center">
+                        <h3>{{ active_tasks }}</h3>
+                        <p>Active Tasks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Recent Tasks</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Service</th>
+                        <th>Provider</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td>#{{ booking.id }}</td>
+                        <td>{{ booking.service.name }}</td>
+                        <td>{{ booking.serviceman.name if booking.serviceman else 'Pending' }}</td>
+                        <td>{{ booking.booking_date.strftime('%Y-%m-%d') }}</td>
+                        <td><span class="badge bg-secondary">{{ booking.status }}</span></td>
+                        <td>${{ booking.service.price }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">No tasks found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-grid gap-2 mt-3">
+            <a href="#" class="btn btn-outline-primary">Download Monthly Report</a>
+            <a href="#" class="btn btn-outline-primary">Manage Employees</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

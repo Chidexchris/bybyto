@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Split Payment - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>Split Payment</h2>
+            <p>Share the cost of Booking #{{ booking.id }}</p>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Total Amount: ${{ booking.service.price }}</h5>
+                <p class="card-text">Service: {{ booking.service.name }}</p>
+            </div>
+        </div>
+
+        <form method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Friend's Email</label>
+                <input type="email" class="form-control" id="email" name="email" required
+                    placeholder="friend@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount to Split</label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" id="amount" name="amount" step="0.01"
+                        max="{{ booking.service.price }}" required>
+                </div>
+            </div>
+            <button type="submit" class="btn theme-btn w-100">Send Request</button>
+        </form>
+
+        <hr>
+
+        <h3>Split Requests</h3>
+        <ul class="list-group">
+            {% for split in booking.split_payments %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                User ID: {{ split.user_id }}
+                <span class="badge bg-primary rounded-pill">${{ split.amount }} - {{ split.status }}</span>
+            </li>
+            {% else %}
+            <li class="list-group-item">No split requests yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

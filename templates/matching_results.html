@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Matching Results - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2>Recommended Pros</h2>
+        </div>
+        <ul class="servicer-list">
+            {% for match in matches %}
+            <li class="servicer-box">
+                <div class="servicer-profile">
+                    <img class="profile-img" src="/static/bybytoo/assets/images/profile/p1.png" alt="provider">
+                </div>
+                <div class="servicer-details">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="#">
+                            <h4 class="fw-medium title-color">{{ match.provider.name }}</h4>
+                        </a>
+                        <h6 class="rating">
+                            <img class="img-fluid star"
+                                src="https://themes.pixelstrap.com/pwa/bybytoo/assets/images/svg/star-fill.svg"
+                                alt="star">
+                            {{ match.provider.rating }}
+                        </h6>
+                    </div>
+                    <h6 class="fw-normal title-color">Match Score: {{ match.score|round(1) }}</h6>
+                    <div class="location">
+                        <i class="iconsax icon" data-icon="location"></i>
+                        <h6>{{ match.distance|round(1) }} km away</h6>
+                    </div>
+                </div>
+            </li>
+            {% else %}
+            <li class="text-center">No providers found matching your criteria.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

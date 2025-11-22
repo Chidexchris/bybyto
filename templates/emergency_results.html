@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Emergency Providers - Bybytoo{% endblock %}
+
+{% block content %}
+<section class="section-b-space">
+    <div class="custom-container">
+        <div class="title">
+            <h2 class="text-danger">Nearest Providers</h2>
+        </div>
+        <ul class="servicer-list">
+            {% for item in providers %}
+            <li class="servicer-box border border-danger">
+                <div class="servicer-profile">
+                    <img class="profile-img" src="/static/bybytoo/assets/images/profile/p1.png" alt="provider">
+                </div>
+                <div class="servicer-details">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="#">
+                            <h4 class="fw-medium title-color">{{ item.provider.name }}</h4>
+                        </a>
+                        <span class="badge bg-danger">Emergency Available</span>
+                    </div>
+                    <h6 class="fw-normal title-color">{{ item.distance|round(2) }} km away</h6>
+                    <div class="d-flex gap-2 mt-2">
+                        <a href="tel:{{ item.provider.phone }}" class="btn btn-sm btn-outline-danger w-50">Call</a>
+                        <a href="#" class="btn btn-sm btn-danger w-50">Book Now</a>
+                    </div>
+                </div>
+            </li>
+            {% else %}
+            <li class="text-center">No emergency providers found nearby.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}
