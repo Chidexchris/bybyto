@@ -168,3 +168,5 @@ cython_debug/
 # Database
 *.db
 *.sqlite3
+# Local Netlify folder
+.netlify

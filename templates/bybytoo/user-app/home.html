@@ -10,10 +10,10 @@
     <meta name="description" content="bybytoo">
     <meta name="keywords" content="bybytoo">
     <meta name="author" content="bybytoo">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="../../assets/images/logo/favicon.png" type="image/x-icon">
+    <link rel="manifest" href="{{ url_for('static', filename='bybytoo/manifest.json') }}">
+    <link rel="icon" href="{{ url_for('static', filename='bybytoo/images/logo/favicon.png') }}" type="image/x-icon">
     <title>Bybytoo - User App</title>
-    <link rel="apple-touch-icon" href="../../assets/images/logo/favicon.png">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='bybytoo/images/logo/favicon.png') }}">
     <meta name="title-color" content="#00162E">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -30,16 +30,16 @@
         rel="stylesheet">
 
     <!-- swiper css -->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/vendors/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bybytoo/css/vendors/swiper-bundle.min.css') }}">
 
     <!-- iconsax css -->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/vendors/iconsax.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bybytoo/css/vendors/iconsax.css') }}">
 
     <!-- bootstrap css -->
-    <link rel="stylesheet" id="rtl-link" type="text/css" href="../../assets/css/vendors/bootstrap.css">
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="{{ url_for('static', filename='bybytoo/css/vendors/bootstrap.css') }}">
 
     <!-- Theme css -->
-    <link rel="stylesheet" id="change-link" type="text/css" href="../../assets/css/style.css">
+    <link rel="stylesheet" id="change-link" type="text/css" href="{{ url_for('static', filename='bybytoo/css/style.css') }}">
 </head>
 
 <body>
@@ -85,7 +85,7 @@
     <section class="section-lg-t-space">
         <div class="container-fluid p-0">
             <div class="position-relative">
-                <img class="img-fluid home-banner w-100 position-relative" src="../../assets/images/banner/banner1.png"
+                <img class="img-fluid home-banner w-100 position-relative" src="{{ url_for('static', filename='bybytoo/images/banner/banner1.png') }}"
                     alt="banner">
                 <div class="banner-content position-absolute">
                     <h6 class="fw-medium text-white error-bg px-2 py-1 rounded-pill d-inline-flex">New Offer</h6>
@@ -333,14 +333,14 @@
                 <li class="service-box">
                     <div class="service-head">
                         <div class="service-profile">
-                            <img class="img-fluid profile-img" src="../../assets/images/profile/p4.png" alt="p4">
+                            <img class="img-fluid profile-img" src="{{ url_for('static', filename='bybytoo/images/profile/p4.png') }}" alt="p4">
                             <h5>Arlene McCoy</h5>
                         </div>
                         <h6 class="rating"> <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/bybytoo/assets/images/svg/star-fill.svg"
                                 alt="star">
                             3.0</h6>
                     </div>
-                    <img class="img-fluid w-100" src="../../assets/images/service/1.jpg" alt="">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='bybytoo/images/service/1.jpg') }}" alt="">
                     <div class="service-details">
                         <div class="d-flex align-items-center justify-content-between">
                             <a href="service-details.html">
@@ -369,14 +369,14 @@
                 <li class="service-box">
                     <div class="service-head">
                         <div class="service-profile">
-                            <img class="img-fluid profile-img" src="../../assets/images/profile/p5.png" alt="p4">
+                            <img class="img-fluid profile-img" src="{{ url_for('static', filename='bybytoo/images/profile/p5.png') }}" alt="p4">
                             <h5>Arlene McCoy</h5>
                         </div>
                         <h6 class="rating"> <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/bybytoo/assets/images/svg/star-fill.svg"
                                 alt="star">
                             3.2</h6>
                     </div>
-                    <img class="img-fluid w-100" src="../../assets/images/service/2.jpg" alt="">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='bybytoo/images/service/2.jpg') }}" alt="">
                     <div class="service-details">
                         <div class="d-flex align-items-center justify-content-between">
                             <a href="service-details.html">
@@ -416,7 +416,7 @@
             <ul class="servicer-list">
                 <li class="servicer-box">
                     <div class="servicer-profile">
-                        <img class="profile-img" src="../../assets/images/profile/p11.png" alt="p11">
+                        <img class="profile-img" src="{{ url_for('static', filename='bybytoo/images/profile/p11.png') }}" alt="p11">
                     </div>
                     <div class="servicer-details">
                         <div class="d-flex align-items-center justify-content-between">
@@ -437,7 +437,7 @@
                 </li>
                 <li class="servicer-box">
                     <div class="servicer-profile">
-                        <img class="profile-img" src="../../assets/images/profile/p10.png" alt="p11">
+                        <img class="profile-img" src="{{ url_for('static', filename='bybytoo/images/profile/p10.png') }}" alt="p11">
                     </div>
                     <div class="servicer-details">
                         <div class="d-flex align-items-center justify-content-between">
@@ -458,7 +458,7 @@
                 </li>
                 <li class="servicer-box">
                     <div class="servicer-profile">
-                        <img class="profile-img" src="../../assets/images/profile/p9.png" alt="p11">
+                        <img class="profile-img" src="{{ url_for('static', filename='bybytoo/images/profile/p9.png') }}" alt="p11">
                     </div>
                     <div class="servicer-details">
                         <div class="d-flex align-items-center justify-content-between">
@@ -495,7 +495,7 @@
                     <div class="swiper-slide">
                         <div class="blog-box ratio2_3">
                             <a href="blog-details.html" class="blog-box-img">
-                                <img class="bg-img blog-img" src="../../assets/images/blog/1.jpg" alt="1">
+                                <img class="bg-img blog-img" src="{{ url_for('static', filename='bybytoo/images/blog/1.jpg') }}" alt="1">
                             </a>
                             <div class="blog-details">
                                 <a href="blog-details.html">
@@ -517,7 +517,7 @@
                     <div class="swiper-slide">
                         <div class="blog-box ratio2_3">
                             <a href="blog-details.html" class="blog-box-img">
-                                <img class="bg-img blog-img" src="../../assets/images/blog/2.jpg" alt="1">
+                                <img class="bg-img blog-img" src="{{ url_for('static', filename='bybytoo/images/blog/2.jpg') }}" alt="1">
                             </a>
                             <div class="blog-details">
                                 <a href="blog-details.html">
@@ -539,7 +539,7 @@
                     <div class="swiper-slide">
                         <div class="blog-box ratio2_3">
                             <a href="blog-details.html" class="blog-box-img">
-                                <img class="bg-img blog-img" src="../../assets/images/blog/3.jpg" alt="1">
+                                <img class="bg-img blog-img" src="{{ url_for('static', filename='bybytoo/images/blog/3.jpg') }}" alt="1">
                             </a>
                             <div class="blog-details">
                                 <a href="blog-details.html">
@@ -626,15 +626,15 @@
     <div class="offcanvas sidebar-offcanvas offcanvas-start" tabindex="-1" id="sidebar">
         <div class="offcanvas-header sidebar-header">
             <div class="sidebar-logo">
-                <img class="img-fluid logo" src="../../assets/images/logo/logo.png" alt="logo">
-                <img class="img-fluid logo-dark" src="../../assets/images/logo/logo-white.png" alt="logo">
+                <img class="img-fluid logo" src="{{ url_for('static', filename='bybytoo/images/logo/logo.png') }}" alt="logo">
+                <img class="img-fluid logo-dark" src="{{ url_for('static', filename='bybytoo/images/logo/logo-white.png') }}" alt="logo">
             </div>
         </div>
         <div class="offcanvas-body">
             <div class="profile-background">
                 <div class="profile-part p-0">
                     <div class="profile-image">
-                        <img id="output" class="img-fluid profile-pic" src="../../assets/images/profile/p11.png"
+                        <img id="output" class="img-fluid profile-pic" src="{{ url_for('static', filename='bybytoo/images/profile/p11.png') }}"
                             alt="11">
                     </div>
 
@@ -745,20 +745,20 @@
     <!-- sidebar end -->
 
     <!-- swiperjs -->
-    <script src="../../assets/js/swiper-bundle.min.js"></script>
-    <script src="../../assets/js/custom-swiper.js"></script>
+    <script src="{{ url_for('static', filename='bybytoo/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bybytoo/js/custom-swiper.js') }}"></script>
 
     <!-- iconsax js -->
-    <script src="../../assets/js/iconsax.js"></script>
+    <script src="{{ url_for('static', filename='bybytoo/js/iconsax.js') }}"></script>
 
     <!-- bootstrap js -->
-    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='bybytoo/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- template-setting js -->
-    <script src="../../assets/js/template-setting.js"></script>
+    <script src="{{ url_for('static', filename='bybytoo/js/template-setting.js') }}"></script>
 
     <!-- script js -->
-    <script src="../../assets/js/script.js"></script>
+    <script src="{{ url_for('static', filename='bybytoo/js/script.js') }}"></script>
 </body>
 
 
